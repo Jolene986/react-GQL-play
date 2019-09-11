@@ -1,0 +1,28 @@
+const [currentPage, setCurrentPage] = useState(1);
+
+  if (loading) return <Loader />;
+  if (error) return "There was an error loading the posts :(";
+
+  const indexOfLastPokemon = currentPage * ppp;
+  const indexOfFirstPokemon = indexOfLastPokemon - ppp;
+
+  const currentPokemons = data.pokemons.slice(
+    indexOfFirstPokemon,
+    indexOfLastPokemon
+  );
+
+  let pageNumbers = [];
+  for (let i = 1; i <= Math.ceil(data.pokemons.length / ppp); i++) {
+    pageNumbers.push(i);
+  }
+  pageNumbers = pageNumbers.map(number => {
+    return (
+      <span
+        key={number}
+        id={number}
+        onClick={e => setCurrentPage(Number(e.target.id))}
+      >
+        {number}
+      </span>
+    );
+  });

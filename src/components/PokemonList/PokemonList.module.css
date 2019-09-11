@@ -1,0 +1,9 @@
+button {
+  padding: 10px;
+  border: 1 px solid black;
+  color: black;
+}
+
+button:disabled {
+  background-color: gray;
+}
